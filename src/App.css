@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0c0d10;
+  --paper: #ece9e2;
+  --dim: #5c5b64;
+  --line: #26262c;
+  --ghost: #3f3f47;
+  --ember: #c8794a;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.45em;
+  margin-left: 0.45em; /* re-center: tracking adds space after the last glyph */
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* --- setup state --- */
+
+.fields {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.field input {
+  width: 2.4ch;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 5.5rem;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  color: var(--paper);
+  transition: border-color 0.25s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--paper);
+}
+
+.field input::placeholder {
+  color: var(--ghost);
+}
+
+.field input::-webkit-outer-spin-button,
+.field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.field input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.field span {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  margin-left: 0.3em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.field-sep {
+  font-size: 4rem;
+  font-weight: 200;
+  line-height: 1.4;
+  color: var(--dim);
+}
+
+/* --- running / done state --- */
+
+.clock {
+  font-size: clamp(4rem, 16vw, 9rem);
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.colon {
+  color: var(--dim);
+}
+
+.colon-breathe {
+  animation: breathe 1s ease-in-out infinite;
+}
+
+.clock-done {
+  color: var(--ember);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.track {
+  width: min(60vw, 480px);
+  height: 1px;
+  background: var(--line);
+}
+
+.track-fill {
+  height: 100%;
+  background: var(--ember);
+  transition: width 1s linear;
+}
+
+/* --- shared --- */
+
+.action {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.65rem 2.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.action:hover {
+  color: var(--paper);
+  border-color: var(--dim);
+}
+
+.action:focus-visible {
+  outline: 1px solid var(--paper);
+  outline-offset: 3px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .colon-breathe,
+  .clock-done {
+    animation: none;
+  }
+
+  .track-fill {
+    transition: none;
+  }
+}
