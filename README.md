@@ -1,6 +1,6 @@
 # WorkTime
 
-Temporizador de concentración minimalista para el escritorio. Define horas y minutos, pulsa Iniciar y recibe un timbre suave junto con una notificación del sistema cuando termina la sesión. Construido con Tauri 2, React 19, Vite y Tailwind CSS 4.
+Temporizador de concentración minimalista para el escritorio. Define horas y minutos, pulsa **Start** y recibe un timbre suave junto con una notificación del sistema cuando termina la sesión. Construido con Tauri 2, React 19, Vite y Tailwind CSS 4.
 
 ## Inicio rápido
 
