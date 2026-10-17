@@ -1,8 +1,8 @@
 # WorkTime
 
-A minimalist focus timer for the desktop. Set hours and minutes, press Start, and get a calm chime plus a system notification when the session ends. Built with Tauri 2, React 19, Vite, and Tailwind CSS 4.
+Temporizador de concentración minimalista para el escritorio. Define horas y minutos, pulsa Iniciar y recibe un timbre suave junto con una notificación del sistema cuando termina la sesión. Construido con Tauri 2, React 19, Vite y Tailwind CSS 4.
 
-## Quick start
+## Inicio rápido
 
 ```bash
 pnpm install
@@ -10,42 +10,42 @@ pnpm tauri dev   # desktop app
 pnpm dev         # browser only (Vite dev server on http://localhost:1420)
 ```
 
-## Features
+## Funcionalidades
 
-- Hours/minutes countdown with tabular digits and breathing colons while running.
-- Hairline progress track that drains as time passes.
-- End-of-session chime (Web Audio, C5 + G5 perfect fifth — no audio assets).
-- System notification on completion: Tauri notification plugin on desktop, Web Notifications API in the browser.
-- Respects `prefers-reduced-motion`; notifications and audio degrade gracefully when unavailable.
+- Cuenta regresiva de horas y minutos con dígitos tabulares y dos puntos que "respiran" mientras corre.
+- Barra de progreso muy fina que se vacía a medida que pasa el tiempo.
+- Timbre al final de la sesión (Web Audio, quinta justa C5 + G5, sin archivos de audio).
+- Notificación del sistema al terminar: plugin de notificaciones de Tauri en el escritorio y Web Notifications API en el navegador.
+- Respeta `prefers-reduced-motion`; las notificaciones y el audio se degradan sin errores cuando no están disponibles.
 
 ## Scripts
 
-| Script | What it does |
-|--------|--------------|
-| `pnpm dev` | Vite dev server (web only) |
-| `pnpm tauri dev` | Desktop app with hot reload |
-| `pnpm build` | Type-check and build the frontend to `dist/` |
-| `pnpm bundle` | Build desktop bundles (`NO_STRIP=true tauri build`) |
+| Script | Qué hace |
+|--------|----------|
+| `pnpm dev` | Servidor de desarrollo de Vite (solo web) |
+| `pnpm tauri dev` | Aplicación de escritorio con recarga en caliente |
+| `pnpm build` | Verifica tipos y compila el frontend en `dist/` |
+| `pnpm bundle` | Genera los paquetes de escritorio (`NO_STRIP=true tauri build`) |
 
-## Building for release
+## Compilación para publicación
 
 ```bash
 pnpm bundle
 ```
 
-Artifacts land in `src-tauri/target/release/bundle/` (AppImage, deb, rpm on Linux).
+Los artefactos se generan en `src-tauri/target/release/bundle/` (AppImage, deb y rpm en Linux).
 
-> **Note (Linux):** `bundle` sets `NO_STRIP=true` because linuxdeploy's embedded `strip` fails on some systems (e.g. recent Arch-based distros). Use `pnpm bundle` instead of calling `tauri build` directly.
+> **Nota (Linux):** `bundle` define `NO_STRIP=true` porque el `strip` integrado de linuxdeploy falla en algunos sistemas (por ejemplo, distribuciones recientes basadas en Arch). Usa `pnpm bundle` en lugar de llamar directamente a `tauri build`.
 
-## Project structure
+## Estructura del proyecto
 
 ```
 src/            React frontend (App.tsx holds the whole timer)
 src-tauri/      Tauri shell: config, icons, Rust entrypoint
 ```
 
-## Requirements
+## Requisitos
 
 - Node.js + pnpm
-- Rust toolchain (for the Tauri desktop build)
-- Linux: Tauri 2 system dependencies (webkit2gtk 4.1, etc.) — see the [Tauri prerequisites](https://tauri.app/start/prerequisites/)
+- Toolchain de Rust (para la compilación de escritorio con Tauri)
+- Linux: dependencias del sistema de Tauri 2 (webkit2gtk 4.1, etc.); consulta los [requisitos previos de Tauri](https://tauri.app/start/prerequisites/)
