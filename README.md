@@ -2,6 +2,23 @@
 
 Temporizador de concentración minimalista para el escritorio. Define horas y minutos, pulsa **Start** y recibe un timbre suave junto con una notificación del sistema cuando termina la sesión. Construido con Tauri 2, React 19, Vite y Tailwind CSS 4.
 
+## Descargas
+
+Descarga el instalador para tu sistema desde la [última versión](https://github.com/ZATT999/WorkTime/releases/latest).
+
+| Sistema | Archivo |
+|---------|---------|
+| Windows 10/11 (x64) | `WorkTime-0.1.0-windows-x64-setup.exe` |
+| Linux (cualquier distribución) | `WorkTime-0.1.0-linux-x86_64.AppImage` |
+| Debian / Ubuntu | `WorkTime-0.1.0-linux-amd64.deb` |
+| Fedora / openSUSE | `WorkTime-0.1.0-linux-x86_64.rpm` |
+
+> **Nota:** los instaladores no están firmados digitalmente.
+> - **Windows:** si SmartScreen bloquea el instalador, pulsa **Más información → Ejecutar de todas formas**.
+> - **Linux (AppImage):** dale permiso de ejecución antes de abrirlo: `chmod +x WorkTime-0.1.0-linux-x86_64.AppImage`.
+>
+> macOS no está disponible por ahora.
+
 ## Inicio rápido
 
 ```bash
